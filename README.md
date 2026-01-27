@@ -663,9 +663,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Mr. Gunawardhana**  
 BSc (Hons) Software Engineering
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [@mgunawardhana](https://github.com/mgunawardhana)
+- LinkedIn: [mGunawardhana](https://www.linkedin.com/in/maneesha-gunawardhana/)
+- Email: maneesha.gunawardhana.contact@gmail.com
 
 ---
 
