@@ -2,6 +2,7 @@ package com.example.app.infrastructure.persistence.entity;
 
 import com.example.app.domain.valueobject.BedType;
 import com.example.app.domain.valueobject.RoomStatus;
+import com.example.app.domain.valueobject.RoomView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,9 @@ import java.util.List;
 @Table(name = "rooms", indexes = {
     @Index(name = "idx_room_price", columnList = "price_per_night"),
     @Index(name = "idx_room_rating", columnList = "rating"),
+    @Index(name = "idx_room_max_guests", columnList = "max_guests"),
     @Index(name = "idx_room_status", columnList = "status"),
+    @Index(name = "idx_room_view", columnList = "view"),
     @Index(name = "idx_room_deleted", columnList = "is_deleted")
 })
 public class RoomEntity extends BaseEntity {
@@ -72,6 +75,10 @@ public class RoomEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
     private RoomStatus status;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "view", length = 20)
+    private RoomView view;
     
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<RoomImageEntity> images = new ArrayList<>();

@@ -2,6 +2,7 @@ package com.example.app.domain.model;
 
 import com.example.app.domain.valueobject.BedType;
 import com.example.app.domain.valueobject.RoomStatus;
+import com.example.app.domain.valueobject.RoomView;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,6 +27,7 @@ public class Room {
     private List<String> tags;
     private List<String> amenities;
     private List<String> badges;
+    private RoomView view;
     private RoomStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -42,7 +44,7 @@ public class Room {
     // Full constructor
     public Room(UUID id, String title, String description, BigDecimal pricePerNight,
                 Double rating, Integer maxGuests, BedType bedType, Double roomSize,
-                List<String> tags, List<String> amenities, List<String> badges,
+                List<String> tags, List<String> amenities, List<String> badges, RoomView view,
                 RoomStatus status, LocalDateTime createdAt, LocalDateTime updatedAt,
                 UUID createdBy, UUID updatedBy, boolean deleted) {
         this.id = id;
@@ -56,6 +58,7 @@ public class Room {
         this.tags = tags;
         this.amenities = amenities;
         this.badges = badges;
+        this.view = view;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -151,6 +154,14 @@ public class Room {
     
     public void setBadges(List<String> badges) {
         this.badges = badges;
+    }
+    
+    public RoomView getView() {
+        return view;
+    }
+    
+    public void setView(RoomView view) {
+        this.view = view;
     }
     
     public RoomStatus getStatus() {

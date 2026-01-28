@@ -25,6 +25,7 @@ public interface RoomMapper {
     @Mapping(target = "tags", source = "tags")
     @Mapping(target = "amenities", source = "amenities")
     @Mapping(target = "badges", source = "badges")
+    @Mapping(target = "view", source = "view")
     @Mapping(target = "status", source = "status")
     @Mapping(target = "createdAt", source = "createdAt")
     @Mapping(target = "updatedAt", source = "updatedAt")

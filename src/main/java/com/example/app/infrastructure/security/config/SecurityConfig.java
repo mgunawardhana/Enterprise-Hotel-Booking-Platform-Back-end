@@ -84,6 +84,9 @@ public class SecurityConfig {
                         .requestMatchers("/oauth2/**").permitAll()
                         .requestMatchers("/login/oauth2/**").permitAll()
                         
+                        // Public room search endpoint
+                        .requestMatchers(HttpMethod.GET, "/api/v1/rooms/search").permitAll()
+                        
                         // Swagger/OpenAPI endpoints
                         .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()

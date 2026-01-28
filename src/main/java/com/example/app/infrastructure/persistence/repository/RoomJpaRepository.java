@@ -4,6 +4,7 @@ import com.example.app.infrastructure.persistence.entity.RoomEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -14,9 +15,10 @@ import java.util.UUID;
 /**
  * Spring Data JPA repository for RoomEntity.
  * Includes custom queries for soft delete support and performance optimization.
+ * Extends JpaSpecificationExecutor for dynamic search queries.
  */
 @Repository
-public interface RoomJpaRepository extends JpaRepository<RoomEntity, UUID> {
+public interface RoomJpaRepository extends JpaRepository<RoomEntity, UUID>, JpaSpecificationExecutor<RoomEntity> {
     
     /**
      * Find all non-deleted rooms with pagination

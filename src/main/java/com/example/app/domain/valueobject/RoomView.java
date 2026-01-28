@@ -1,20 +1,17 @@
 package com.example.app.domain.valueobject;
 
 /**
- * Enum representing different bed types available in rooms.
+ * Enum representing different room views.
  * Part of the domain layer - no framework dependencies.
  */
-public enum BedType {
-    SINGLE("Single Bed"),
-    DOUBLE("Double Bed"),
-    QUEEN("Queen Bed"),
-    KING("King Bed"),
-    TWO_QUEEN("Two Queen Beds"),
-    TWIN("Twin Beds");
+public enum RoomView {
+    OCEAN_VIEW("Ocean View"),
+    GARDEN_VIEW("Garden View"),
+    PANORAMIC_VIEW("Panoramic View");
     
     private final String displayName;
     
-    BedType(String displayName) {
+    RoomView(String displayName) {
         this.displayName = displayName;
     }
     

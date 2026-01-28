@@ -1,6 +1,7 @@
 package com.example.app.adapter.exception;
 
 import com.example.app.common.exception.DuplicateResourceException;
+import com.example.app.common.exception.InvalidSearchCriteriaException;
 import com.example.app.common.exception.InvalidTokenException;
 import com.example.app.common.exception.ResourceNotFoundException;
 import com.example.app.common.response.CommonResponse;
@@ -182,6 +183,23 @@ public class GlobalExceptionHandler {
     public ResponseEntity<CommonResponse<Void>> handleIllegalArgumentException(IllegalArgumentException ex) {
         String traceId = TraceIdGenerator.generate();
         log.error("[{}] Illegal argument: {}", traceId, ex.getMessage());
+        
+        CommonResponse<Void> response = CommonResponse.error(
+                ex.getMessage(),
+                HttpStatus.BAD_REQUEST.value(),
+                traceId
+        );
+        
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+    
+    /**
+     * Handle invalid search criteria exceptions (400)
+     */
+    @ExceptionHandler(InvalidSearchCriteriaException.class)
+    public ResponseEntity<CommonResponse<Void>> handleInvalidSearchCriteriaException(InvalidSearchCriteriaException ex) {
+        String traceId = TraceIdGenerator.generate();
+        log.error("[{}] Invalid search criteria: {}", traceId, ex.getMessage());
         
         CommonResponse<Void> response = CommonResponse.error(
                 ex.getMessage(),
